@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Register')
+
 @section('content')
 <p class="login-box-msg">Register a new membership</p>
 

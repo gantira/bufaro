@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Login')
+
 @section('content')
 <p class="login-box-msg">Sign in to start your session</p>
 
