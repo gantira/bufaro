@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('colour', 'ColourController');
 Route::resource('type', 'TypeController');
+Route::resource('size', 'SizeController');

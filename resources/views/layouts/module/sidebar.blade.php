@@ -62,7 +62,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['size']) }}">
+                                    <a href="{{ route('size.index') }}" class="nav-link {{ linkActive(request()->path(), ['size']) }}">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Size</p>
                                     </a>
