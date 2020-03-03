@@ -56,7 +56,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['type']) }}">
+                                    <a href="{{ route('type.index') }}" class="nav-link {{ linkActive(request()->path(), ['type']) }}">
                                         <i class="far fa-dot-circle nav-icon"></i>
                                         <p>Jenis</p>
                                     </a>

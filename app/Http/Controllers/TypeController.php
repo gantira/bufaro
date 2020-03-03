@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Colour;
+use App\Type;
 use Illuminate\Http\Request;
 
-class ColourController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ColourController extends Controller
      */
     public function index()
     {
-        $colour = Colour::all();
+        $type = Type::all();
 
-        return view('colour.index', compact('colour'));
+        return view('type.index', compact('type'));
     }
 
     /**
@@ -36,13 +36,13 @@ class ColourController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'code' => 'required|string|max:3|unique:colours',
+            'code' => 'required|string|max:3|unique:types',
             'name' => 'required|string',
         ]);
 
-        Colour::create($request->all());
+        Type::create($request->all());
 
-        return redirect(route('colour.index'))->with(['success' => 'Warna Baru Ditambahkan.']);
+        return redirect(route('type.index'))->with(['success' => 'Jenis Baru Ditambahkan.']);
     }
 
     /**
@@ -64,9 +64,9 @@ class ColourController extends Controller
      */
     public function edit($id)
     {
-        $colour = Colour::find($id);
+        $type = Type::find($id);
 
-        return view('colour.edit', compact('colour'));
+        return view('type.edit', compact('type'));
     }
 
     /**
@@ -79,13 +79,13 @@ class ColourController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'code' => 'required|string|max:3|unique:colours,code,' . $id,
+            'code' => 'required|string|max:3|unique:types,code,' . $id,
             'name' => 'required|string'
         ]);
 
-        Colour::find($id)->update($request->all());
+        Type::find($id)->update($request->all());
 
-        return redirect(route('colour.index'))->with(['success' => 'Warna Sudah Diupdate.']);
+        return redirect(route('type.index'))->with(['success' => 'Jenis Sudah Diupdate.']);
     }
 
     /**
@@ -96,8 +96,8 @@ class ColourController extends Controller
      */
     public function destroy($id)
     {
-        Colour::find($id)->delete($id);
+        Type::find($id)->delete($id);
 
-        return redirect(route('colour.index'))->with(['success' => 'Warna Dihapus.']);
+        return redirect(route('type.index'))->with(['success' => 'Jenis Dihapus.']);
     }
 }
