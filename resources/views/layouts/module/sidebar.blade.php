@@ -13,7 +13,7 @@
                 <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </div>
         </div>
 
@@ -30,15 +30,23 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('product.index') }}" class="nav-link {{ linkActive(request()->path(), ['product']) }}">
+                        <i class="nav-icon fab fa-buffer"></i>
+                        <p>
+                            Product
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
                     <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size']) }}">
-                        <i class="fab fa-buffer nav-icon"></i>
+                        <i class="fas fa-cogs"></i>
                         <p>
                             Master
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
                             <a href="#" class="nav-link active">
