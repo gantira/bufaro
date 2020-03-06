@@ -2,31 +2,22 @@
 
 @section('title' , 'Product')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.css') }}">
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-md-12">
-    <div class="card card-default card-outline">
-      <div class="card-header">
-        <h3 class="card-title">
-          <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">
-            <span class="fas fa-plus-circle"></span> Tambah
-          </a>
-        </h3>
-        <div class="card-tools">
-          <form action="{{ route('product.index') }}" method="get">
-            <div class="input-group" style="width: 200px;">
-              <input type="text" name="q" class="form-control" placeholder="Cari" value="{{ request()->q }}">
+    <div class="card card-default">
 
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-              </div>
-            </div>
-          </form>
-
+      <div class="card-body">
+        <div class="mb-2">
+          <div id="tools-button"></div>
         </div>
-      </div>
-      <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-nowrap">
+        <b></b>
+        <table id="example" class="table table-hover table-striped  ">
           <thead>
             <tr>
               <th>#</th>
@@ -34,18 +25,18 @@
               <th>Jenis</th>
               <th>Warna</th>
               <th>Size</th>
-              <th></th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @forelse($product as $key => $row)
+            @foreach($product as $key => $row)
             <tr>
               <td>{{ $key+1 }}</td>
               <td>{{ $row->code_label }}</td>
               <td>{{ $row->type->name }}</td>
               <td>{{ $row->colour->name }}</td>
               <td>{{ $row->size->name }}</td>
-              <td class="text-right py-0 align-middle">
+              <td>
                 <div class="btn-group btn-group-sm">
                   <a href="{{ route('product.edit', $row->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                   <a href="javascript:;" onclick="event.preventDefault();getElementById('hapus{{$row->id}}').submit();" class="btn btn-danger"><i class="fas fa-trash"></i></a>
@@ -56,17 +47,55 @@
                 </div>
               </td>
             </tr>
-            @empty
-            <tr>
-              <td colspan="6" class="text-center">Tidak ada data</td>
-            </tr>
-            @endforelse
+            @endforeach
           </tbody>
         </table>
-        <div class="card-footer clearfix">
-          <!-- {{ $product->links() }} -->
-        </div>
       </div>
     </div>
   </div>
-  @endsection
+</div>
+@endsection
+
+@push('js')
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+<script>
+  $(document).ready(function() {
+    var table = $('#example').DataTable({
+      buttons: [{
+        extend: 'copy',
+        text: '<i class="fas fa-copy"></i> Copy',
+        titleAttr: 'Copy'
+      }, {
+        extend: 'excel',
+        text: '<i class="fas fa-file-excel"></i> Excel',
+        titleAttr: 'excel'
+      }, {
+        extend: 'print',
+        text: '<i class="fas fa-print"></i> Print',
+        titleAttr: 'Print'
+      }, {
+        text: '<i class="fas fa-plus-circle"></i> Tambah',
+        titleAttr: 'Tambah',
+        action: function(e, dt, node, config) {
+          window.location = `{{ route('product.create') }}`
+        }
+      }, ]
+    });
+
+    table.buttons().container().appendTo($('#tools-button'));
+
+
+  });
+</script>
+@endpush

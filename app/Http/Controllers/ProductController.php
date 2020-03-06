@@ -14,24 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::orderBy('id');
-
-        $product->when(request()->has('q'), function($query) {
-            return $query->whereHas('size', function($query) {
-                return $query->where('name', 'LIKE', '%' . request()->q . '%');
-            })->orWhereHas('type', function($query) {
-                return $query->where('name', 'LIKE', '%' . request()->q . '%');
-            })->orWhereHas('colour', function($query) {
-                return $query->where('name', 'LIKE', '%' . request()->q . '%');
-            });
-        });
-        
-        // if(request()->q) {
-        //     $product = $product->filter(function ($item, $key) {
-        //         return $item['code_label'] == request()->q;
-        //     });
-        // }
-        $product = $product->paginate(10);
+        $product = Product::all();
 
         return view('product.index', compact('product'));
     }
@@ -42,7 +25,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
+    {
         return view('product.create');
     }
 
@@ -119,6 +102,6 @@ class ProductController extends Controller
     {
         Product::find($id)->delete($id);
 
-        return redirect(route('product.index'))->with(['success' => 'Product Dihapus.']);
+        return redirect(route('product.index'))->with(['success' => 'Product Sudah Dihapus.']);
     }
 }
