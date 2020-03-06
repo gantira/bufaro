@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('size_id');
             $table->unsignedBigInteger('colour_id');
             $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('storage_id');
             $table->timestamps();
         });
     }

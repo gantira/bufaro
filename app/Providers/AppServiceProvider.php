@@ -27,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['product.create', 'product.edit'], 'App\Http\View\SizeComposer');
         View::composer(['product.create', 'product.edit'], 'App\Http\View\ColourComposer');
         View::composer(['product.create', 'product.edit'], 'App\Http\View\TypeComposer');
+        View::composer(['product.create', 'product.edit'], 'App\Http\View\StorageComposer');
     }
 }

@@ -41,6 +41,7 @@ class ProductController extends Controller
             'colour_id' => 'required|exists:colours,id',
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
+            'storage_id' => 'required|exists:storages,id',
         ]);
 
         Product::create($request->all());
@@ -85,6 +86,8 @@ class ProductController extends Controller
             'colour_id' => 'required|exists:colours,id',
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
+            'storage_id' => 'required|exists:storages,id',
+
         ]);
 
         Product::find($id)->update($request->all());
