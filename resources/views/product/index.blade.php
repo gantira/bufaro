@@ -25,6 +25,8 @@
               <th>Jenis</th>
               <th>Warna</th>
               <th>Size</th>
+              <th>Penyimpanan</th>
+              <th>Stock</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -36,10 +38,12 @@
               <td>{{ $row->type->name }}</td>
               <td>{{ $row->colour->name }}</td>
               <td>{{ $row->size->name }}</td>
+              <td>{{ $row->storage->name }}</td>
+              <td>{{ $row->stock }}</td>
               <td>
                 <div class="btn-group btn-group-sm">
                   <a href="{{ route('product.edit', $row->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                  <a href="javascript:;" onclick="event.preventDefault();getElementById('hapus{{$row->id}}').submit();" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                  <a href="javascript:;" onclick="confirm('Data yang bersangkutan akan terhapus?\nKamu Yakin?');event.preventDefault();getElementById('hapus{{$row->id}}').submit();" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                   <form action="{{ route('product.destroy', $row->id) }}" method="post" id="hapus{{$row->id}}">
                     @csrf
                     @method('delete')

@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="Nama">Type</label>
                         <select name="type_id" class="form-control select2bs4" style="width: 100%;">
-                        @foreach($type as $row) 
+                            @foreach($type as $row)
                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                             @endforeach
                         </select>
@@ -39,11 +39,15 @@
                     </div>
                     <div class="form-group">
                         <label for="Nama">Penyimpanan</label>
-                        <select name="size_id" class="form-control select2bs4" style="width: 100%;">
+                        <select name="storage_id" class="form-control select2bs4" style="width: 100%;">
                             @foreach($storage as $row)
                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Stock</label>
+                        <input type="number" name="stock" class="form-control" value="0">
                     </div>
                 </div>
                 <div class="card-footer">
@@ -52,19 +56,20 @@
             </form>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
 
-    @push('js')
-    <script>
-        $(function() {
-            //Initialize Select2 Elements
-            $('.select2').select2()
+@push('js')
+<script>
+    $(function() {
+        //Initialize Select2 Elements
+        $('.select2').select2()
 
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
         })
-    </script>
+    })
+</script>
 
-    @endpush
+@endpush

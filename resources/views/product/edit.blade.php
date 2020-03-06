@@ -38,6 +38,18 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="Nama">Penyimpanan</label>
+                        <select name="storage_id" class="form-control select2bs4" style="width: 100%;">
+                            @foreach($storage as $row)
+                            <option value="{{ $row->id }}"  {{ $row->id == $product->storage->id ? 'selected' : '' }}>{{ $row->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Stock</label>
+                        <input type="number" name="stock" class="form-control" value="{{ $product->stock }}">
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

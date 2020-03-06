@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
                     <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
-                        <i class="fas fa-cogs"></i>
+                        <i class="fas fa-cog"></i>
                         <p>
                             Master
                             <i class="right fas fa-angle-left"></i>
@@ -84,6 +84,17 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:;" onclick="event.preventDefault();getElementById('logout').submit();" class="nav-link {{ linkActive(request()->path(), ['logout']) }}">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                    <form action="{{ route('logout') }}" method="post" id="logout">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </nav>

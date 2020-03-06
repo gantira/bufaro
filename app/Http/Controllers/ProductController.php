@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::latest()->get();
 
         return view('product.index', compact('product'));
     }
@@ -42,9 +42,17 @@ class ProductController extends Controller
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
             'storage_id' => 'required|exists:storages,id',
+            'stock' => 'numeric',
+            'allow' => 'nullable',
         ]);
 
-        Product::create($request->all());
+        $check = Product::whereColourId(request()->colour_id)->whereSizeId(request()->size_id)->whereTypeId(request()->type_id)->whereStorageId(request()->storage_id)->first();
+
+        if ($check && !request()->allow)
+            return redirect(route('product.index'))->with(['confirmation' => 'Product Sudah Terdaftar. Apakah tetap ingin mendaftarkan?'])->with(['product' => collect(request()->all())]);
+
+
+        Product::create($request->except('allow'));
 
         return redirect(route('product.index'))->with(['success' => 'Product Baru Ditambahkan.']);
     }
@@ -87,10 +95,10 @@ class ProductController extends Controller
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
             'storage_id' => 'required|exists:storages,id',
-
+            'stock' => 'numeric',
         ]);
 
-        Product::find($id)->update($request->all());
+        Product::find($id)->update(request()->all());
 
         return redirect(route('product.index'))->with(['success' => 'Product Sudah Diupdate.']);
     }
@@ -103,7 +111,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete($id);
+        Product::find($id)->delete();
 
         return redirect(route('product.index'))->with(['success' => 'Product Sudah Dihapus.']);
     }

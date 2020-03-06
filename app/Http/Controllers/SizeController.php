@@ -42,7 +42,7 @@ class SizeController extends Controller
 
         Size::create($request->all());
 
-        return redirect(route('size.index'))->with(['success' => 'Sizes Baru Ditambahkan.']);
+        return redirect(route('size.index'))->with(['success' => 'Size Baru Ditambahkan.']);
     }
 
     /**
@@ -85,7 +85,7 @@ class SizeController extends Controller
 
         Size::find($id)->update($request->all());
 
-        return redirect(route('size.index'))->with(['success' => 'Sizes Sudah Diupdate.']);
+        return redirect(route('size.index'))->with(['success' => 'Size Sudah Diupdate.']);
     }
 
     /**
@@ -98,6 +98,6 @@ class SizeController extends Controller
     {
         Size::find($id)->delete($id);
 
-        return redirect(route('size.index'))->with(['success' => 'Sizes Dihapus.']);
+        return redirect(route('size.index'))->with(['success' => 'Size Dihapus.']);
     }
 }

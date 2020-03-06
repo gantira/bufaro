@@ -20,6 +20,11 @@ class Product extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function storage()
+    {
+        return $this->belongsTo(Storage::class);
+    }
+
     public function colour()
     {
         return $this->belongsTo(Colour::class);
@@ -27,6 +32,6 @@ class Product extends Model
 
     public function getCodeLabelAttribute()
     {
-        return "{$this->type->code}-{$this->colour->code}-{$this->id}";
+        return "{$this->type->code}-{$this->colour->code}-{$this->size->code}-{$this->storage->code}-{$this->id}";
     }
 }
