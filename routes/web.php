@@ -23,3 +23,4 @@ Route::resource('colour', 'ColourController');
 Route::resource('type', 'TypeController');
 Route::resource('size', 'SizeController');
 Route::resource('product', 'ProductController');
+Route::resource('storage', 'StorageController');

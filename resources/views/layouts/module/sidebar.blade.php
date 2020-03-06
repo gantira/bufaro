@@ -38,8 +38,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
-                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size']) }}">
+                <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
+                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
                         <i class="fas fa-cogs"></i>
                         <p>
                             Master
@@ -49,7 +49,7 @@
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
-                            <a href="#" class="nav-link active">
+                            <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size']) }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Product
@@ -78,9 +78,9 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('storage.index') }} " class="nav-link {{ linkActive(request()->path(), ['storage']) }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Level 2</p>
+                                <p>Penyimpanan</p>
                             </a>
                         </li>
                     </ul>
