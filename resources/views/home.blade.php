@@ -26,12 +26,12 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>{{ $storage }}</h3>
+                        <h3>{{ $warehouse }}</h3>
 
-                        <p>Storage</p>
+                        <p>Warehouse</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="ion ion-home"></i>
                     </div>
                     <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -56,9 +56,9 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{ $stock }}</h3>
 
-                        <p>Unique Visitors</p>
+                        <p>Stock</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>

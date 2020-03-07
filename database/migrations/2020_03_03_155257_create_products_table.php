@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('size_id');
             $table->unsignedBigInteger('colour_id');
             $table->unsignedBigInteger('type_id');
-            $table->unsignedBigInteger('storage_id');
+            $table->unsignedBigInteger('warehouse_id');
             $table->integer('stock')->default(0);
             $table->timestamps();
         });

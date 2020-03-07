@@ -30,7 +30,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in warehouse.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -41,12 +41,12 @@ class ProductController extends Controller
             'colour_id' => 'required|exists:colours,id',
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
-            'storage_id' => 'required|exists:storages,id',
+            'warehouse_id' => 'required|exists:warehouses,id',
             'stock' => 'numeric',
             'allow' => 'nullable',
         ]);
 
-        $check = Product::whereColourId(request()->colour_id)->whereSizeId(request()->size_id)->whereTypeId(request()->type_id)->whereStorageId(request()->storage_id)->first();
+        $check = Product::whereColourId(request()->colour_id)->whereSizeId(request()->size_id)->whereTypeId(request()->type_id)->whereWarehouseId(request()->storage_id)->first();
 
         if ($check && !request()->allow)
             return redirect(route('product.index'))->with(['confirmation' => 'Product Sudah Terdaftar. Apakah tetap ingin mendaftarkan?'])->with(['product' => collect(request()->all())]);
@@ -82,7 +82,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in warehouse.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -94,7 +94,7 @@ class ProductController extends Controller
             'colour_id' => 'required|exists:colours,id',
             'size_id' => 'required|exists:sizes,id',
             'type_id' => 'required|exists:types,id',
-            'storage_id' => 'required|exists:storages,id',
+            'warehouse_id' => 'required|exists:warehouses,id',
             'stock' => 'numeric',
         ]);
 
@@ -104,7 +104,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from warehouse.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -36,13 +36,13 @@ class WarehouseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'code' => 'required|string|max:3|unique:storages',
+            'code' => 'required|string|max:3|unique:warehouses',
             'name' => 'required|string',
         ]);
 
         Warehouse::create($request->all());
 
-        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Baru Ditambahkan.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Warehouse Baru Ditambahkan.']);
     }
 
     /**
@@ -79,13 +79,13 @@ class WarehouseController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'code' => 'required|string|max:3|unique:storages,code,' . $id,
+            'code' => 'required|string|max:3|unique:warehouses,code,' . $id,
             'name' => 'required|string'
         ]);
 
         Warehouse::find($id)->update($request->all());
 
-        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Sudah Diupdate.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Warehouse Sudah Diupdate.']);
     }
 
     /**
@@ -98,6 +98,6 @@ class WarehouseController extends Controller
     {
         Warehouse::find($id)->delete($id);
 
-        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Dihapus.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Warehouse Dihapus.']);
     }
 }

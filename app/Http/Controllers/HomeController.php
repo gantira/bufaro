@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use App\Storage;
+use App\Warehouse;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -28,8 +28,9 @@ class HomeController extends Controller
     {
         $user = User::count();
         $product = Product::count();
-        $storage = Storage::count();
+        $warehouse = Warehouse::count();
+        $stock = Product::sum('stock');
 
-        return view('home', compact('user', 'product', 'storage'));
+        return view('home', compact('user', 'product', 'warehouse', 'stock'));
     }
 }
