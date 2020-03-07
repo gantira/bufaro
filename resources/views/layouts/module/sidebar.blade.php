@@ -22,6 +22,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               @can('dashboard')
                 <li class="nav-item">
                     <a href="{{ url('home') }}" class="nav-link {{ linkActive(request()->path(), ['home']) }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -30,6 +31,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('product')
                 <li class="nav-item">
                     <a href="{{ route('product.index') }}" class="nav-link {{ linkActive(request()->path(), ['product']) }}">
                         <i class="nav-icon fab fa-buffer"></i>
@@ -38,6 +41,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('master')
                 <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size', 'warehouse', 'role']) }}">
                     <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size', 'warehouse', 'role']) }}">
                         <i class="fas fa-cog nav-icon"></i>
@@ -91,12 +96,15 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('user')
                 <li class="nav-item">
                     <a href="{{ route('user.index') }} " class="nav-link {{ linkActive(request()->path(), ['user']) }}">
                         <i class="far fa-user nav-icon"></i>
                         <p>User</p>
                     </a>
                 </li>
+                @endcan
                 <li class="nav-item">
                     <a href="javascript:;" onclick="event.preventDefault();getElementById('logout').submit();" class="nav-link {{ linkActive(request()->path(), ['logout']) }}">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

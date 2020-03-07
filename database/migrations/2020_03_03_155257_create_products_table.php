@@ -21,6 +21,12 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('warehouse_id');
             $table->integer('stock')->default(0);
             $table->timestamps();
+
+            $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');
+            $table->foreign('colour_id')->references('id')->on('colours')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
+
         });
     }
 
