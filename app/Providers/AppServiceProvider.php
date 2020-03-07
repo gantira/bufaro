@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['product.create', 'product.edit'], 'App\Http\View\ColourComposer');
         View::composer(['product.create', 'product.edit'], 'App\Http\View\TypeComposer');
         View::composer(['product.create', 'product.edit'], 'App\Http\View\StorageComposer');
-        View::composer(['role.create', 'role.edit'], 'App\Http\View\RolePermissionComposer');
+        View::composer(['role.create', 'role.edit', 'user.index', 'user.edit'], 'App\Http\View\RolePermissionComposer');
     }
 }
