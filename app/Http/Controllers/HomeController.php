@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Storage;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::count();
+        $product = Product::count();
+        $storage = Storage::count();
+
+        return view('home', compact('user', 'product', 'storage'));
     }
 }

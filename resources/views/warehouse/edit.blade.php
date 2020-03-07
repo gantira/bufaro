@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title' , 'Jenis')
+@section('title' , 'Warehouse')
 
 @section('content')
 <div class="row">
@@ -9,18 +9,18 @@
       <div class="card-header">
         <h3 class="card-title">Input Form</h3>
       </div>
-      <form role="form" action="{{ route('storage.update', $storage->id) }}" method="post">
+      <form role="form" action="{{ route('warehouse.update', $warehouse->id) }}" method="post">
         @csrf
         @method('put')
 
         <div class="card-body">
           <div class="form-group">
             <label for="Kode">Kode</label>
-            <input name="code" type="text" id="Kode" class="form-control" placeholder="Kode Jenis" value="{{ $storage->code }}">
+            <input name="code" type="text" id="Kode" class="form-control" placeholder="Kode Warehouse" value="{{ $warehouse->code }}">
           </div>
           <div class="form-group">
             <label for="Nama">Nama</label>
-            <input name="name" type="text" id="Nama" class="form-control" placeholder="Nama Jenis" value="{{ $storage->name }}">
+            <input name="name" type="text" id="Nama" class="form-control" placeholder="Nama Warehouse" value="{{ $warehouse->name }}">
           </div>
         </div>
         <div class="card-footer">

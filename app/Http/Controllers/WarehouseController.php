@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Storage;
+use App\Warehouse;
 use Illuminate\Http\Request;
 
-class StorageController extends Controller
+class WarehouseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class StorageController extends Controller
      */
     public function index()
     {
-        $storage = Storage::all();
+        $warehouse = Warehouse::all();
 
-        return view('storage.index', compact('storage'));
+        return view('warehouse.index', compact('warehouse'));
     }
 
     /**
@@ -28,7 +28,7 @@ class StorageController extends Controller
     { }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in warehouse.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,9 +40,9 @@ class StorageController extends Controller
             'name' => 'required|string',
         ]);
 
-        Storage::create($request->all());
+        Warehouse::create($request->all());
 
-        return redirect(route('storage.index'))->with(['success' => 'Penyimpanan Baru Ditambahkan.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Baru Ditambahkan.']);
     }
 
     /**
@@ -64,13 +64,13 @@ class StorageController extends Controller
      */
     public function edit($id)
     {
-        $storage = Storage::find($id);
+        $warehouse = Warehouse::find($id);
 
-        return view('storage.edit', compact('storage'));
+        return view('warehouse.edit', compact('warehouse'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in warehouse.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -83,21 +83,21 @@ class StorageController extends Controller
             'name' => 'required|string'
         ]);
 
-        Storage::find($id)->update($request->all());
+        Warehouse::find($id)->update($request->all());
 
-        return redirect(route('storage.index'))->with(['success' => 'Penyimpanan Sudah Diupdate.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Sudah Diupdate.']);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from warehouse.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Storage::find($id)->delete($id);
+        Warehouse::find($id)->delete($id);
 
-        return redirect(route('storage.index'))->with(['success' => 'Penyimpanan Dihapus.']);
+        return redirect(route('warehouse.index'))->with(['success' => 'Penyimpanan Dihapus.']);
     }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Storage extends Model
+class Warehouse extends Model
 {
     protected $guarded = ['id'];
 }

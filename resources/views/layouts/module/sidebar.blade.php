@@ -48,28 +48,11 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['role', 'permission']) }}">
-                            <a href="#" class="nav-link {{ linkActive(request()->path(), ['role', 'permission']) }}">
+                        <li class="nav-item">
+                            <a href="{{ route('role.index') }}" class="nav-link {{ linkActive(request()->path(), ['role']) }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Role Permission
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Role & Permission</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('role.index') }}" class="nav-link {{ linkActive(request()->path(), ['role']) }}">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Role</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('permission.index') }}" class="nav-link {{ linkActive(request()->path(), ['permission']) }}">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Permission</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
                             <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size']) }}">
@@ -101,9 +84,9 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('storage.index') }} " class="nav-link {{ linkActive(request()->path(), ['storage']) }}">
+                            <a href="{{ route('warehouse.index') }} " class="nav-link {{ linkActive(request()->path(), ['warehouse']) }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Storage</p>
+                                <p>Warehouse</p>
                             </a>
                         </li>
                     </ul>
