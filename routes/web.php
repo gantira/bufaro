@@ -24,3 +24,5 @@ Route::resource('type', 'TypeController');
 Route::resource('size', 'SizeController');
 Route::resource('product', 'ProductController');
 Route::resource('storage', 'StorageController');
+Route::resource('permission', 'PermissionController');
+Route::resource('role', 'RoleController');

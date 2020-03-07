@@ -38,9 +38,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
-                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size', 'storage']) }}">
-                        <i class="fas fa-cog"></i>
+                <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size', 'storage', 'role', 'permission']) }}">
+                    <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size', 'storage', 'role', 'permission']) }}">
+                        <i class="fas fa-cog nav-icon"></i>
                         <p>
                             Master
                             <i class="right fas fa-angle-left"></i>
@@ -48,6 +48,29 @@
                     </a>
 
                     <ul class="nav nav-treeview">
+                        <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['role', 'permission']) }}">
+                            <a href="#" class="nav-link {{ linkActive(request()->path(), ['role', 'permission']) }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Role Permission
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('role.index') }}" class="nav-link {{ linkActive(request()->path(), ['role']) }}">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Role</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('permission.index') }}" class="nav-link {{ linkActive(request()->path(), ['permission']) }}">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Permission</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item has-treeview {{ linkMenuActive(request()->path(), ['colour', 'type', 'size']) }}">
                             <a href="#" class="nav-link {{ linkActive(request()->path(), ['colour', 'type', 'size']) }}">
                                 <i class="far fa-circle nav-icon"></i>
@@ -80,7 +103,7 @@
                         <li class="nav-item">
                             <a href="{{ route('storage.index') }} " class="nav-link {{ linkActive(request()->path(), ['storage']) }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Penyimpanan</p>
+                                <p>Storage</p>
                             </a>
                         </li>
                     </ul>

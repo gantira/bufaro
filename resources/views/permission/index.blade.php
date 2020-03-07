@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title' , 'Storage')
+@section('title' , 'Permission')
 
 @section('content')
 <div class="row">
@@ -9,17 +9,13 @@
       <div class="card-header">
         <h3 class="card-title">Form Input</h3>
       </div>
-      <form action="{{ route('storage.store') }}" role="form" method="post">
+      <form action="{{ route('permission.store') }}" role="form" method="post">
         @csrf
 
         <div class="card-body">
           <div class="form-group">
-            <label for="Kode">Kode</label>
-            <input name="code" id="Kode" type="text" class="form-control" placeholder="Kode Storage" value="{{ old('code') }}">
-          </div>
-          <div class="form-group">
             <label for="Nama">Nama</label>
-            <input name="name" id="Nama" type="text" class="form-control" placeholder="Nama Storage" value="{{ old('name') }}">
+            <input name="name" id="Nama" type="text" class="form-control" placeholder="Nama Permission" value="{{ old('name') }}">
           </div>
         </div>
         <div class="card-footer">
@@ -31,32 +27,30 @@
   <div class="col-md-8">
     <div class="card card-warning">
       <div class="card-header">
-        <h3 class="card-title">Tabel Storage</h3>
+        <h3 class="card-title">Tabel Permission</h3>
       </div>
       <div class="card-body table-responsive p-0">
         <table class="table table-hover text-nowrap">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Kode</th>
-              <th>Nama Storage</th>
+              <th>Nama Permission</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @forelse($storage as $row)
+            @forelse($permission as $row)
             <tr>
               <td>{{ $row->id }}</td>
-              <td>{{ $row->code }}</td>
               <td>{{ $row->name }}</td>
               <td>
-                <a href="{{ route('storage.edit', $row->id) }}">
+                <a href="{{ route('permission.edit', $row->id) }}">
                   <button class="btn btn-sm" title="Edit"><i class="fas fa-edit"></i></button>
                 </a>
                 <a href="javascript:;" onclick="event.preventDefault();getElementById('hapus{{$row->id}}').submit();">
                   <button class="btn btn-sm" title="Hapus"><i class="fas fa-trash"></i></button>
 
-                  <form action="{{ route('storage.destroy', $row->id) }}" method="post" id="hapus{{$row->id}}">
+                  <form action="{{ route('permission.destroy', $row->id) }}" method="post" id="hapus{{$row->id}}">
                     @csrf
                     @method('delete')
                   </form>
