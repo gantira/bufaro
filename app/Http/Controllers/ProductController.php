@@ -46,7 +46,7 @@ class ProductController extends Controller
             'allow' => 'nullable',
         ]);
 
-        $check = Product::whereColourId(request()->colour_id)->whereSizeId(request()->size_id)->whereTypeId(request()->type_id)->whereWarehouseId(request()->storage_id)->first();
+        $check = Product::whereColourId(request()->colour_id)->whereSizeId(request()->size_id)->whereTypeId(request()->type_id)->whereWarehouseId(request()->warehouse_id)->first();
 
         if ($check && !request()->allow)
             return redirect(route('product.index'))->with(['confirmation' => 'Product Sudah Terdaftar. Apakah tetap ingin mendaftarkan?'])->with(['product' => collect(request()->all())]);

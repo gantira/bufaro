@@ -40,7 +40,7 @@
         <input name="colour_id" type="hidden" value="{{ session('product')['colour_id'] }}">
         <input name="size_id" type="hidden" value="{{ session('product')['size_id'] }}">
         <input name="type_id" type="hidden" value="{{ session('product')['type_id'] }}">
-        <input name="storage_id" type="hidden" value="{{ session('product')['storage_id'] }}">
+        <input name="warehouse_id" type="hidden" value="{{ session('product')['warehouse_id'] }}">
         <input name="stock" type="hidden" value="{{ session('product')['stock'] }}">
         <input name="allow" type="hidden" value="1">
 

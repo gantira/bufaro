@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Nama">Warehouse</label>
-                        <select name="storage_id" class="form-control select2bs4" style="width: 100%;">
+                        <select name="warehouse_id" class="form-control select2bs4" style="width: 100%;">
                             @foreach($warehouse as $row)
                             <option value="{{ $row->id }}"  {{ $row->id == $product->warehouseid ? 'selected' : '' }}>{{ $row->name }}</option>
                             @endforeach

@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }} ">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }} ">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }} ">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }} ">
   <!-- overlayScrollbars -->
@@ -95,15 +93,6 @@
   </script>
   <!-- Bootstrap 4 -->
   <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <!-- ChartJS -->
-  <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
-  <!-- Sparkline -->
-  <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
-  <!-- JQVMap -->
-  <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-  <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
   <!-- Select2 -->
   <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
   <!-- daterangepicker -->
@@ -118,7 +107,6 @@
   <!-- AdminLTE App -->
   <script src="{{ asset('dist/js/adminlte.js') }}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('dist/js/demo.js') }}"></script>
 
