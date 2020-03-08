@@ -39,10 +39,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Penyimpanan</label>
+                        <label for="Nama">Warehouse</label>
                         <select name="storage_id" class="form-control select2bs4" style="width: 100%;">
-                            @foreach($storage as $row)
-                            <option value="{{ $row->id }}"  {{ $row->id == $product->storage->id ? 'selected' : '' }}>{{ $row->name }}</option>
+                            @foreach($warehouse as $row)
+                            <option value="{{ $row->id }}"  {{ $row->id == $product->warehouseid ? 'selected' : '' }}>{{ $row->name }}</option>
                             @endforeach
                         </select>
                     </div>

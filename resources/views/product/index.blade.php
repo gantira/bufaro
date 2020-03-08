@@ -38,7 +38,7 @@
               <td>{{ $row->type->name }}</td>
               <td>{{ $row->colour->name }}</td>
               <td>{{ $row->size->name }}</td>
-              <td>{{ $row->storage->name }}</td>
+              <td>{{ $row->warehouse->name }}</td>
               <td>{{ $row->stock }}</td>
               <td>
                 <div class="btn-group btn-group-sm">
